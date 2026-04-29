@@ -1066,6 +1066,163 @@ b-4x3 × 6     (12 × 6 = 72)
 
 ---
 
+---
+
+## Layout 13 · Image Showcase(图片驱动 · 产品家族网格)
+
+**用途**:**3-4 个产品对比**(产品家族 / 套装 / 配件矩阵)、多产品视觉展示
+**密度**:1 banner + 3 / 4 / 6 张产品图卡
+**默认主题**:dark(产品图通常深底更突出)
+**与现有 layout 的差别**:
+- L5(Hero + 2 Side)是 1 主 + 2 副 · 偏向"主推 + 规格"
+- L13 是平等的 N 张产品图 · 偏向"系列对比"
+
+### 13A · 4 产品 2x2(MacBook 家族 / AirPods 家族 / 4 套餐型号)
+
+```html
+<section class="slide" data-theme="dark">
+  <div class="chrome">
+    <div>产品家族 · MacBook Lineup</div>
+    <div>05 / 18</div>
+  </div>
+  <div class="bento">
+    <!-- 顶部 banner -->
+    <div class="b-card grad b-12x2" data-anim>
+      <div class="kicker">PRODUCT FAMILY · 4 MODELS</div>
+      <h2 class="h-xl">MacBook <span class="gtext gtext-sky">家族</span></h2>
+    </div>
+
+    <!-- 4 张产品图卡 b-6x3 × 4 -->
+    <div class="b-card img b-6x3" data-anim>
+      <img class="img-fill" src="images/macbook-air-13.jpg" alt="MacBook Air 13">
+      <div class="img-overlay">
+        <div class="sticker accent" style="margin-bottom:.6vh">AIR 13"</div>
+        <h3 class="h-md">MacBook Air 13</h3>
+        <p class="body" style="margin-top:.4vh">M5 · 18 小时 · ¥9,999 起</p>
+      </div>
+    </div>
+    <div class="b-card img b-6x3" data-anim>
+      <img class="img-fill" src="images/macbook-air-15.jpg" alt="MacBook Air 15">
+      <div class="img-overlay">
+        <div class="sticker mint" style="margin-bottom:.6vh">AIR 15"</div>
+        <h3 class="h-md">MacBook Air 15</h3>
+        <p class="body" style="margin-top:.4vh">M5 · 18 小时 · ¥11,999 起</p>
+      </div>
+    </div>
+    <div class="b-card img b-6x3" data-anim>
+      <img class="img-fill" src="images/macbook-pro-14.jpg" alt="MacBook Pro 14">
+      <div class="img-overlay">
+        <div class="sticker flame" style="margin-bottom:.6vh">PRO 14"</div>
+        <h3 class="h-md">MacBook Pro 14</h3>
+        <p class="body" style="margin-top:.4vh">M5 Pro · 22 小时 · ¥14,999 起</p>
+      </div>
+    </div>
+    <div class="b-card img b-6x3" data-anim>
+      <img class="img-fill" src="images/macbook-pro-16.jpg" alt="MacBook Pro 16">
+      <div class="img-overlay">
+        <div class="sticker accent" style="margin-bottom:.6vh">PRO 16"</div>
+        <h3 class="h-md">MacBook Pro 16</h3>
+        <p class="body" style="margin-top:.4vh">M5 Max · 24 小时 · ¥19,999 起</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div>Layout 13A · Product Family 2×2</div>
+    <div>4 MODELS · ONE FAMILY</div>
+  </div>
+</section>
+```
+
+**网格规划**:`b-12x2` (24) + `b-6x3` × 4 (72) = 96 ✅
+
+### 13B · 3 产品横排(套餐 hero / 三色对比)
+
+```html
+<section class="slide" data-theme="dark">
+  <div class="bento">
+    <div class="b-card grad b-12x2" data-anim>
+      <div class="kicker">FLAGSHIP TRIO</div>
+      <h2 class="h-xl">三款<span class="gtext gtext-sky">主打</span></h2>
+    </div>
+    <div class="b-card img b-4x6" data-anim>
+      <img class="img-fill" src="images/iphone-air.jpg" alt="iPhone Air">
+      <div class="img-overlay">
+        <div class="sticker mint" style="margin-bottom:.6vh">AIR</div>
+        <h3 class="h-md">iPhone Air</h3>
+        <p class="body" style="margin-top:.4vh">最薄 · ¥7,999</p>
+      </div>
+    </div>
+    <div class="b-card img b-4x6" data-anim>
+      <img class="img-fill" src="images/iphone-pro.jpg" alt="iPhone Pro">
+      <div class="img-overlay">
+        <div class="sticker accent" style="margin-bottom:.6vh">PRO</div>
+        <h3 class="h-md">iPhone Pro</h3>
+        <p class="body" style="margin-top:.4vh">3 倍长焦 · ¥9,999</p>
+      </div>
+    </div>
+    <div class="b-card img b-4x6" data-anim>
+      <img class="img-fill" src="images/iphone-pro-max.jpg" alt="iPhone Pro Max">
+      <div class="img-overlay">
+        <div class="sticker flame" style="margin-bottom:.6vh">PRO MAX</div>
+        <h3 class="h-md">iPhone Pro Max</h3>
+        <p class="body" style="margin-top:.4vh">5x · ¥12,999</p>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+**网格规划**:`b-12x2` (24) + `b-4x6` × 3 (72) = 96 ✅
+
+### 13C · 单产品满屏 hero(发布会主推页)
+
+```html
+<section class="slide" data-theme="dark">
+  <div class="bento">
+    <div class="b-card img b-12x8" data-anim>
+      <img class="img-fill" src="images/vision-pro.jpg" alt="Vision Pro 2">
+      <div class="img-overlay" style="padding:8vh 6vw">
+        <div class="sticker accent" style="margin-bottom:1.4vh">NEW · 2026</div>
+        <h1 class="h-hero-zh" style="font-size:6vw;margin-bottom:1.4vh">Vision Pro 2</h1>
+        <p class="lead" style="max-width:50vw;margin-bottom:2vh">
+          重量减轻 30%,续航延长一倍,价格更接近一台高端笔电。
+        </p>
+        <div class="meta-row">
+          <span>FROM ¥19,999</span><span>·</span><span>2026.06 上市</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+### 没图怎么办
+
+用占位 `.img-slot`(虚线框 + 文字提示)替代 `<img>`:
+
+```html
+<div class="b-card img b-6x3">
+  <div class="img-slot" style="position:absolute;inset:0;border-radius:0;border:none">
+    PRODUCT IMAGE PLACEHOLDER
+  </div>
+  <div class="img-overlay">
+    <h3 class="h-md">产品名</h3>
+  </div>
+</div>
+```
+
+或者用纯文字卡(`.b-card.grad` 不带图)先占位,等图到位后再替换。
+
+### 图片来源建议
+
+- 产品官方渲染图:apple.com / vercel.com / linear.app 等品牌资源页(Apple Newsroom / GitHub OG image)
+- 原型图 / Mockup:Figma 导出 / Mockuuups Studio
+- 截图:macOS ⌘+Shift+4 截屏后,放到 `images/{页号}-{语义}.png`
+
+详见 SKILL.md "图片约定" 一节。
+
+---
+
 ## Layout 决策树
 
 ```
@@ -1079,7 +1236,8 @@ b-4x3 × 6     (12 × 6 = 72)
 ├─ 5-7 个维度的 dashboard   → Layout 7 (Mixed Free)      ★ 本 skill 主推
 ├─ 4 个 KPI / 4 个里程碑    → Layout 8 (Stat Showcase 2×2)
 ├─ 多列对比表 / 财务三年表   → Layout 9 (Table-Centric)   ★ 商业用途
-└─ 章节目录 / 内容大纲       → Layout 10 (TOC,A 列表式 / B 网格式)
+├─ 章节目录 / 内容大纲       → Layout 10 (简化 TOC) / 11 (章节预告) / 12 (全局大纲)
+└─ 产品家族 / 多产品图对比   → Layout 13 (Image Showcase,A 4 卡 / B 3 卡 / C 单卡 hero)
 ```
 
 ---
