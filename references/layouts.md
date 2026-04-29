@@ -1242,29 +1242,35 @@ b-4x3 × 6     (12 × 6 = 72)
 
 ---
 
-## 完整 Deck 节奏建议(20 页参考)
+## 完整 Deck 节奏建议(20 页参考 · 含默认目录系统)
+
+> 这是带 4 个章节的标准模板,包含 **L12 全局大纲(P2 默认)** + **L11 每章预告**。详见 SKILL.md "默认骨架"。
 
 | 页 | Layout | 密度 | 说明 |
 |---|---|---|---|
-| 1 | L1 Single Focus | hero | 开场 |
-| 2 | L6 Top Hero + Grid | 4 卡 | 三个理由 |
-| 3 | L7 Mixed Free | 7 卡 | 数据 dashboard |
-| 4 | L1 Single Focus | hero | 章节幕封"产品" |
-| 5 | L5 Hero + 2 Side | 3 卡 | 主产品介绍 |
-| 6 | L8 Stat Showcase | 4 卡 | 关键数字 |
-| 7 | L4 3-Column | 3 卡 | 三个套餐 |
-| 8 | L1 Single Focus | hero | 章节幕封"技术" |
-| 9 | L7 Mixed Free | 6 卡 | 技术架构 dashboard |
-| 10 | L3 Asymmetric 8/4 | 2 卡 | 核心叙事 + 数据 |
-| 11 | L2 50/50 | 2 卡 | 旧 vs 新 |
-| 12 | L1 Single Focus | hero | 章节幕封"市场" |
-| 13 | L8 Stat Showcase | 4 卡 | 市场数据 |
-| 14 | L6 Top Hero + Grid | 4 卡 | 三个客户案例 |
-| 15 | L1 Single Focus | hero | 章节幕封"未来" |
-| 16 | L4 3-Column | 3 卡 | 路线图 Q1/Q2/Q3 |
+| 1 | L1 Single Focus | hero | 开场封面 |
+| **2** | **L12 Outline Overview ★** | banner + N 卡 | **全局大纲 · 默认插入** |
+| 3 | **L11 Chapter Preview ★** | 2 卡 | 第 1 章预告 |
+| 4 | L7 Mixed Free | 6 卡 | 第 1 章正文 dashboard |
+| 5 | L8 Stat Showcase | 4 卡 | 第 1 章关键数字 |
+| 6 | **L11 Chapter Preview ★** | 2 卡 | 第 2 章预告 |
+| 7 | L5 Hero + 2 Side | 3 卡 | 主产品介绍 |
+| 8 | L4 3-Column | 3 卡 | 三个套餐 |
+| 9 | **L11 Chapter Preview ★** | 2 卡 | 第 3 章预告 |
+| 10 | L9 Table-Centric | 3 卡 | 财务/数据对比表 |
+| 11 | L3 Asymmetric 8/4 | 2 卡 | 核心叙事 + 数据 |
+| 12 | L2 50/50 | 2 卡 | 旧 vs 新 |
+| 13 | **L11 Chapter Preview ★** | 2 卡 | 第 4 章预告 |
+| 14 | L13 Image Showcase | 5 卡 | 产品家族图 grid |
+| 15 | L6 Top Hero + Grid | 4 卡 | 三个客户案例 |
+| 16 | L8 Stat Showcase | 4 卡 | 路线图 Q1/Q2/Q3 |
 | 17 | L7 Mixed Free | 5 卡 | 团队 + 融资 + 进度 |
-| 18 | L3 Asymmetric 8/4 | 2 卡 | 愿景宣言 + 关键数字 |
+| 18 | L3 Asymmetric 8/4 | 2 卡 | 愿景 + 关键数字 |
 | 19 | L1 Single Focus | hero | 大问题 / Call to Action |
-| 20 | L1 Single Focus | hero | "谢谢" / 联系方式 |
+| 20 | L1 Single Focus | hero | 收尾金句 / 联系方式 |
+
+★ = **默认骨架页**(skill 自动插入,无需用户主动要求)。
+
+总占比:目录系统(L11×4 + L12×1)= 5 张 / 20 = **25%**。听众的"路标"和"内容"同等重要 — 不要为了塞内容把 L11 / L12 砍掉。
 
 每 3-5 页插入 1 个 hero 喘息,稠密页(4-7 卡)+ hero 页比例约 2:1。
