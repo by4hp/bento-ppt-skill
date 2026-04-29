@@ -13,28 +13,28 @@
        切换主题:从 references/themes.md 复制对应的 :root 块
        整体替换标有"主题"注释的这一组变量
     */
-    /* 主题 · 主底与文字 */
-    --bg-base:#000000;
-    --bg-elev:#0a0a0c;
-    --card:#141417;
-    --card-elev:#1c1c20;
+    /* 主题 · 主底与文字(精校自 apple.com) */
+    --bg-base:#000000;            /* Pure Black */
+    --bg-elev:#1d1d1f;            /* Near-Black Ink */
+    --card:#272729;               /* Tile 1 · 主 dark 卡 */
+    --card-elev:#2a2a2c;          /* Tile 2 · 微亮一档 */
     --card-border:rgba(255,255,255,0.08);
     --card-glow:rgba(255,255,255,0.04);
-    --text:#f5f5f7;
-    --text-2:rgba(245,245,247,0.7);
-    --text-3:rgba(245,245,247,0.45);
+    --text:#ffffff;               /* On Dark */
+    --text-2:#cccccc;             /* Body Muted */
+    --text-3:rgba(255,255,255,0.45);
 
-    /* 主题 · accent 三色(用于 mesh gradient + gradient text) */
-    --accent-1:#0a84ff;   /* iOS 蓝 */
-    --accent-2:#bf5af2;   /* 紫 */
-    --accent-3:#ff375f;   /* 粉 */
-    --accent-4:#30d158;   /* 翠 */
+    /* 主题 · accent(Apple 暗底用 Sky Link Blue 等更亮的色) */
+    --accent-1:#2997ff;           /* Sky Link Blue · 暗底专用 */
+    --accent-2:#bf5af2;           /* 紫 */
+    --accent-3:#ff453a;           /* 红 */
+    --accent-4:#30d158;           /* 翠 */
 
     /* 主题 · gradient text 预设 */
-    --gtext-aurora:linear-gradient(135deg,#0a84ff 0%,#bf5af2 50%,#ff375f 100%);
-    --gtext-sky:linear-gradient(135deg,#64d2ff 0%,#0a84ff 100%);
-    --gtext-flame:linear-gradient(135deg,#ff9f0a 0%,#ff375f 100%);
-    --gtext-mint:linear-gradient(135deg,#30d158 0%,#64d2ff 100%);
+    --gtext-aurora:linear-gradient(135deg,#2997ff 0%,#bf5af2 50%,#ff453a 100%);
+    --gtext-sky:linear-gradient(135deg,#2997ff 0%,#0071e3 100%);
+    --gtext-flame:linear-gradient(135deg,#ff9f0a 0%,#ff453a 100%);
+    --gtext-mint:linear-gradient(135deg,#30d158 0%,#2997ff 100%);
 
     /* ============ 字体(跨主题固定) ============ */
     --sans-en:"Inter","SF Pro Display",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
@@ -490,6 +490,38 @@
   .toc-item.active .toc-pages{color:var(--accent-1)}
   /* 已讲过的章节弱化 */
   .toc-item.done{opacity:.45}
+
+  /* ============ Subnav(小节列表)· L11 / L12 共用 ============
+     用法:在 .b-card 里包 <ul class="subnav">,内含 <li class="sub-item">
+     每个 sub-item:小节名 + 右侧页码,简洁分行
+     适合 L11 单章详细预告 / L12 全局大纲里每章节卡的小节展示
+  */
+  .subnav{
+    display:flex;flex-direction:column;
+    gap:.4vh;margin:0;padding:0;list-style:none;
+  }
+  .subnav .sub-item{
+    display:flex;justify-content:space-between;
+    align-items:baseline;gap:1em;
+    padding:.8vh 0;
+    border-top:1px solid rgba(127,127,127,.12);
+  }
+  .subnav .sub-item:first-child{border-top:0}
+  .subnav .sub-name{
+    font-family:var(--sans-zh);font-weight:400;
+    font-size:max(12px,.95vw);color:var(--text-2);line-height:1.4;flex:1;min-width:0;
+  }
+  .subnav .sub-pg{
+    font-family:var(--mono);font-size:max(9px,.7vw);
+    letter-spacing:.18em;color:var(--text-3);text-transform:uppercase;flex-shrink:0;
+  }
+  /* 当前小节(可选高亮) */
+  .subnav .sub-item.current .sub-name{color:var(--accent-1);font-weight:600}
+  .subnav .sub-item.current .sub-pg{color:var(--accent-1)}
+  /* 紧凑变体(L12 全局大纲里章节卡内,字稍小) */
+  .subnav.tight .sub-item{padding:.5vh 0}
+  .subnav.tight .sub-name{font-size:max(11px,.82vw)}
+  .subnav.tight .sub-pg{font-size:max(9px,.65vw)}
 
   .c-head{display:flex;flex-direction:column;gap:.6vh;margin-bottom:1.4vh}
   .c-head .c-kick{

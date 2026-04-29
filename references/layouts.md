@@ -849,6 +849,223 @@ b-6x3  × 4       = 72
 
 ---
 
+---
+
+## Layout 11 · Chapter Preview(章节预告)
+
+**用途**:**进入新章节前的"本章预告"页**(每章开头放 1 张),左侧大字章节名 + 右侧本章所有小节列表
+**密度**:2 卡(左大章 + 右小节列表)
+**默认主题**:dark · 仪式感更强
+**比 L10 好在哪**:L10 列表式扁平,这个左右非对称、视觉层级清晰、信息密度更高
+
+```html
+<section class="slide" data-theme="dark">
+  <div class="chrome">
+    <div>第二幕 · 行业与市场</div>
+    <div>04 / 18</div>
+  </div>
+  <div class="bento">
+    <!-- 左:大章节名 b-4x8 (glass 让背景透出,仪式感) -->
+    <div class="b-card glass b-4x8" data-anim>
+      <div class="kicker">ACT 02 · CURRENT CHAPTER</div>
+      <div class="hero-num gtext gtext-aurora" style="font-size:8vw;margin-top:1vh">02</div>
+      <h2 class="h-xl" style="margin-top:1.5vh">行业与市场</h2>
+      <p class="lead" style="margin-top:2vh">
+        36 亿美元盘子, <span class="gtext gtext-flame">14% vs 0.2%</span> 的渗透率反差。
+      </p>
+      <div class="meta-row" style="margin-top:auto">
+        <span>P 04-07</span><span>·</span><span>4 PAGES</span>
+      </div>
+    </div>
+    <!-- 右:本章小节详细列表 b-8x8 -->
+    <div class="b-card b-8x8" data-anim>
+      <div class="c-head">
+        <div class="c-kick">CHAPTER 02 · CONTENTS</div>
+        <div class="c-title">本章包含 4 节</div>
+      </div>
+      <ul class="subnav" style="flex:1;justify-content:center;gap:1.6vh;margin-top:2vh">
+        <li class="sub-item">
+          <div class="sub-name">04 · 全球智能床市场规模(4 机构口径)</div>
+          <div class="sub-pg">P 04</div>
+        </li>
+        <li class="sub-item">
+          <div class="sub-name">05 · 区域市场份额 · 14% vs 0.2% 渗透率反差</div>
+          <div class="sub-pg">P 05</div>
+        </li>
+        <li class="sub-item">
+          <div class="sub-name">06 · 4 大长期增长驱动力</div>
+          <div class="sub-pg">P 06</div>
+        </li>
+        <li class="sub-item">
+          <div class="sub-name">07 · 国内家具行业宏观环境</div>
+          <div class="sub-pg">P 07</div>
+        </li>
+      </ul>
+      <div class="c-foot">CHAPTER PREVIEW</div>
+    </div>
+  </div>
+  <div class="foot">
+    <div>Layout 11 · Chapter Preview</div>
+    <div>ACT II · ENTRY PAGE</div>
+  </div>
+</section>
+```
+
+**网格规划**:`b-4x8` (32) + `b-8x8` (64) = 96 ✅
+
+**用法节奏**:
+- 整 deck 有几个章节,就放几个 L11(每章开头 1 张)
+- 配合 L12(开场全局大纲)= 双层目录系统:L12 是地图,L11 是地形图
+- 不要每章都用 — 短章节(1-2 页)直接进入即可,只有 ≥ 3 页的章节值得用 L11
+
+---
+
+## Layout 12 · Outline Overview(全局大纲)
+
+**用途**:**开场后第 2 页的全局地图**,展示所有章节 + 每章下的小节;比 L10 信息量大得多
+**密度**:1 banner + N 章节卡(每卡含小节列表)
+**默认主题**:dark
+**与 L10 区别**:L10 只列章节名,L12 同时列出每章下的所有小节;L12 是真正"商业 PPT 该有的"完整大纲
+
+### 12A · 4 章版(2x2 最对称 · 推荐)
+
+```html
+<section class="slide" data-theme="dark">
+  <div class="chrome">
+    <div>Outline · 完整大纲</div>
+    <div>02 / 16</div>
+  </div>
+  <div class="bento">
+    <!-- 顶部 banner -->
+    <div class="b-card glass b-12x2" data-anim>
+      <div class="kicker">FULL OUTLINE · 4 ACTS · 16 PAGES</div>
+      <h2 class="h-xl">完整<span class="gtext gtext-aurora">大纲</span></h2>
+    </div>
+    <!-- 4 张章节卡 b-6x3 × 4 -->
+    <div class="b-card grad b-6x3" data-anim>
+      <div style="display:flex;align-items:baseline;gap:1.2vw">
+        <div class="hero-num gtext gtext-sky" style="font-size:3vw;margin:0">01</div>
+        <div style="flex:1">
+          <div class="c-title">公司画像</div>
+          <div class="caption" style="margin-top:.3vh">P 02-04 · 3 PAGES</div>
+        </div>
+      </div>
+      <ul class="subnav tight" style="margin-top:1.2vh">
+        <li class="sub-item"><div class="sub-name">公司基本信息 + 全球地位</div><div class="sub-pg">P 02</div></li>
+        <li class="sub-item"><div class="sub-name">二十年历程 + 7 大品牌</div><div class="sub-pg">P 03</div></li>
+        <li class="sub-item"><div class="sub-name">三地产能布局</div><div class="sub-pg">P 04</div></li>
+      </ul>
+    </div>
+    <div class="b-card b-6x3" data-anim>
+      <div style="display:flex;align-items:baseline;gap:1.2vw">
+        <div class="hero-num" style="font-size:3vw;margin:0;color:var(--text-3)">02</div>
+        <div style="flex:1">
+          <div class="c-title">行业与市场</div>
+          <div class="caption" style="margin-top:.3vh">P 05-07 · 3 PAGES</div>
+        </div>
+      </div>
+      <ul class="subnav tight" style="margin-top:1.2vh">
+        <li class="sub-item"><div class="sub-name">全球市场规模(4 机构口径)</div><div class="sub-pg">P 05</div></li>
+        <li class="sub-item"><div class="sub-name">14% vs 0.2% 渗透率反差</div><div class="sub-pg">P 06</div></li>
+        <li class="sub-item"><div class="sub-name">4 大增长驱动力</div><div class="sub-pg">P 07</div></li>
+      </ul>
+    </div>
+    <div class="b-card b-6x3" data-anim>
+      <div style="display:flex;align-items:baseline;gap:1.2vw">
+        <div class="hero-num" style="font-size:3vw;margin:0;color:var(--text-3)">03</div>
+        <div style="flex:1">
+          <div class="c-title">财务与竞争</div>
+          <div class="caption" style="margin-top:.3vh">P 08-12 · 5 PAGES</div>
+        </div>
+      </div>
+      <ul class="subnav tight" style="margin-top:1.2vh">
+        <li class="sub-item"><div class="sub-name">三年财务对比表</div><div class="sub-pg">P 08-09</div></li>
+        <li class="sub-item"><div class="sub-name">技术与数据资产</div><div class="sub-pg">P 10</div></li>
+        <li class="sub-item"><div class="sub-name">竞争对手 + 客户集中度</div><div class="sub-pg">P 11-12</div></li>
+      </ul>
+    </div>
+    <div class="b-card b-6x3" data-anim>
+      <div style="display:flex;align-items:baseline;gap:1.2vw">
+        <div class="hero-num" style="font-size:3vw;margin:0;color:var(--text-3)">04</div>
+        <div style="flex:1">
+          <div class="c-title">战略与展望</div>
+          <div class="caption" style="margin-top:.3vh">P 13-16 · 4 PAGES</div>
+        </div>
+      </div>
+      <ul class="subnav tight" style="margin-top:1.2vh">
+        <li class="sub-item"><div class="sub-name">2025 关键动作</div><div class="sub-pg">P 13</div></li>
+        <li class="sub-item"><div class="sub-name">SWOT 全景 + 风险</div><div class="sub-pg">P 14-15</div></li>
+        <li class="sub-item"><div class="sub-name">二次曲线收尾金句</div><div class="sub-pg">P 16</div></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot">
+    <div>Layout 12A · Outline 4-Chapter Grid</div>
+    <div>OPENING MAP</div>
+  </div>
+</section>
+```
+
+### 12B · 5 章版(2 行 · 上 2 下 3)
+
+5 章不能整除 12 列,改用 2 行布局:第一行 2 大卡 `b-6x3`,第二行 3 中卡 `b-4x3`。
+
+```
+banner b-12x2  (24)
+b-6x3 b-6x3   (18 + 18)
+b-4x3 b-4x3 b-4x3 (12 + 12 + 12)
+合计 = 96 ✅
+```
+
+第一行的两章用 `b-6x3` 显得"重要",第二行 3 章用 `b-4x3` 紧凑展示。适合"前 2 章是基础、后 3 章是深入"的叙事节奏。骨架同 12A,只是把 4 张卡改成 5 张并按上述 grid。
+
+### 12C · 6 章版(3x2 网格)
+
+```
+banner b-12x2 (24)
+b-4x3 × 6     (12 × 6 = 72)
+合计 = 96 ✅
+```
+
+6 张等大卡 `b-4x3`,每卡内的 subnav 用 `.tight` 紧凑变体,小节限制 ≤ 3 个/章。
+
+### Subnav 小节列表组件速查
+
+```html
+<ul class="subnav tight">  <!-- 加 .tight 用紧凑版,L12 章节卡内推荐 -->
+  <li class="sub-item">
+    <div class="sub-name">小节标题</div>
+    <div class="sub-pg">P 05</div>
+  </li>
+  <li class="sub-item current">     <!-- .current 高亮当前小节 -->
+    <div class="sub-name">当前小节</div>
+    <div class="sub-pg">P 06</div>
+  </li>
+</ul>
+```
+
+| 类 | 用途 |
+|---|---|
+| `<ul class="subnav">` | 标准小节列表(L11 大列表场景) |
+| `<ul class="subnav tight">` | 紧凑变体(L12 章节卡内,字稍小) |
+| `<li class="sub-item">` | 一行小节(左小节名 + 右页码 sticker) |
+| `<li class="sub-item current">` | 当前小节高亮(accent-1 色 + 加粗) |
+
+### TOC 系统三件套对比
+
+| Layout | 用途 | 信息密度 | 何时用 |
+|---|---|---|---|
+| **L10** TOC List | 简单章节列表(只列章节名) | 低 | 章节多但内容简单的 deck(如 1 章 1 页的极简风) |
+| **L11** Chapter Preview | 进入新章节前的预告(左大章 + 右小节) | 中 | **每章节开头放 1 张** · 推荐主推 |
+| **L12** Outline Overview | 开场全局大纲(banner + N 章节卡 + 每章小节) | 高 | **开场后第 2 页** · 整场地图 · 推荐主推 |
+
+**双层目录系统建议**:
+- 第 2 页放 L12(开场全局地图)
+- 每章开头放 L11(本章详细预告)
+- L10 仅在"完全不需要小节信息"的简单场景用,日常优先 L11 / L12
+
+---
+
 ## Layout 决策树
 
 ```

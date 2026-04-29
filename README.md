@@ -44,11 +44,14 @@ git clone <this-repo-url> .claude/skills/bento-ppt-skill
 
 | 主题 | 调性 | 适合 |
 |---|---|---|
-| 🌑 **Apple Dark**(默认) | 纯黑 + 系统灰 + 蓝紫 accent | 通用科技 / 不知道选啥 |
-| ☀️ **Apple Light** | 浅灰 + 白卡 + 蓝 accent | 消费品 / 浅色官网风 |
-| 🌌 **Vision Aurora** | 深空蓝紫粉 mesh + 玻璃感 | AI / 未来感 / 沉浸感 |
-| ⬛ **Vercel Mono** | 纯黑白 + 极细灰边 | 开发者工具 / 克制科技 |
-| 🌿 **OpenAI Warm** | 米白 + 翠绿 + 橙红 | AI 研究 / 温暖科技 |
+| 🌑 **Apple Dark**(默认) | Tile #272729 + Sky Link Blue + 零渐变 | 通用科技 / 不知道选啥 |
+| ☀️ **Apple Light** | Parchment #f5f5f7 + Action Blue #0066cc | 消费品 / 浅色官网风 |
+| 🌌 **Vision Aurora** | 深空蓝紫粉 mesh + 玻璃感(自创) | AI / 未来感 / 沉浸感 |
+| ⬛ **Vercel Geist** | Vercel Black #171717 + Geist 字体 + 极紧 tracking | 开发者工具 / 克制科技 |
+| 🌿 **Claude Warm** | Canvas 米白 + Coral #cc785c + 衬线标题 | AI 工具 / Anthropic 风 / editorial 温暖 |
+
+> 4 套主题(除 Vision Aurora)的颜色全部精校自真实站点 design tokens · 数据来源 [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) · 命令 `npx getdesign@latest add <site>`。
+> 完整原始 DESIGN.md 在 [`references/design-md/`](references/design-md/),含组件 / 阴影 / 排版完整规范。
 
 完整 `:root` CSS 变量见 [references/themes.md](references/themes.md)。
 

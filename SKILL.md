@@ -1,6 +1,6 @@
 ---
 name: bento-ppt-skill
-description: 生成"Apple keynote × 现代 SaaS"风格的横向翻页 Bento Grid 网页 PPT(单 HTML 文件),含 CSS gradient mesh 背景、12×8 网格的卡片系统、玻璃质感、超大数字 + 渐变文字、5 套主题色(Apple Dark / Apple Light / Vision Aurora / Vercel Mono / OpenAI Warm)。当用户需要做产品发布会 / SaaS 路演 / AI demo / 数据 dashboard / 功能矩阵展示型 PPT,或提到"bento PPT"、"Apple keynote 风"、"产品发布会风格 PPT"、"卡片网格演讲稿"时使用。
+description: 生成"Apple keynote × 现代 SaaS"风格的横向翻页 Bento Grid 网页 PPT(单 HTML 文件),含 CSS gradient mesh 背景、12×8 网格的卡片系统、玻璃质感、超大数字 + 渐变文字、5 套主题色(Apple Dark / Apple Light / Vision Aurora / Vercel Geist / Claude Warm — 4 套精校自真实站点 design tokens)、L9 商业表格、L10/L11/L12 三层目录系统(简单 TOC / 章节预告 / 全局大纲)。当用户需要做产品发布会 / SaaS 路演 / AI demo / 数据 dashboard / 功能矩阵展示型 PPT,或提到"bento PPT"、"Apple keynote 风"、"产品发布会风格 PPT"、"卡片网格演讲稿"时使用。
 ---
 
 # Bento PPT Skill
