@@ -36,12 +36,14 @@ description: 生成"Apple keynote × 现代 SaaS"风格的横向翻页 Bento Gri
 - 用飞书 / 企业内部协作(用 `lark-slides`)
 - 视频 / 动画演示 → 用 `hyperframes`
 
-## 与姊妹 skill 的差异
+## 与同类 skill 的差异
+
+本 skill 的**架构和工程范式参考自开源项目** [op7418/guizang-ppt-skill](https://github.com/op7418/guizang-ppt-skill)(直接复用了横向翻页 / Motion One / skill 文件骨架 / 类预检体系等),**风格上完全重新设计**为 Bento Grid × 现代科技。
 
 | Skill | 视觉 DNA | 何时选 |
 |---|---|---|
 | `bento-ppt-skill`(本) | Bento 网格 × 现代科技 | 产品发布 / SaaS / dashboard / AI demo |
-| `guizang-ppt-skill` | 电子杂志 × 电子墨水 | 个人分享 / 文化 / 行业观察 |
+| `guizang-ppt-skill`(参考来源) | 电子杂志 × 电子墨水 | 个人分享 / 文化 / 行业观察 |
 | `dee-ppt-skill` | Bento 报告 | 周报 / 提案 / 内部数据报告 |
 | `frontend-slides` | 视觉转场动画 | 非设计师做炫酷 demo |
 
