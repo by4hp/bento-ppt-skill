@@ -237,6 +237,12 @@
   .b-3x4{grid-column:span 3;grid-row:span 4}
   .b-3x3{grid-column:span 3;grid-row:span 3}
   .b-3x2{grid-column:span 3;grid-row:span 2}
+  .b-12x6{grid-column:span 12;grid-row:span 6}
+  .b-12x1{grid-column:span 12;grid-row:span 1}
+  .b-4x6{grid-column:span 4;grid-row:span 6}
+  .b-6x6{grid-column:span 6;grid-row:span 6}
+  .b-2x4{grid-column:span 2;grid-row:span 4}
+  .b-2x8{grid-column:span 2;grid-row:span 8}
 
   /* ============ Bento Card 主样式 ============ */
   .b-card{
@@ -390,6 +396,101 @@
   }
 
   /* Card Header(kicker + h-md 配套) */
+  /* ============ Bento Table(.bt) ·  商业表格组件 ============
+     用法:在 .b-card 里直接写 <table class="bt"> + thead/tbody。
+     - .num     右对齐 + 等宽数字
+     - .hl      高亮列(配 accent-1 色)
+     - .pos     正向数据(绿)
+     - .neg     负向数据(粉/红)
+     - .muted   弱化(text-3)
+     约束:≤ 8 行 × 6 列;每页 ≤ 1 张表;表格永远在 .b-card 里
+  */
+  .bt{
+    width:100%;border-collapse:collapse;
+    font-family:var(--sans-zh);
+    font-size:max(13px,1vw);
+    margin-top:.4vh;
+  }
+  .bt thead th{
+    font-family:var(--mono);
+    font-size:max(10px,.78vw);
+    letter-spacing:.2em;text-transform:uppercase;
+    color:var(--text-3);
+    font-weight:500;text-align:left;
+    padding:1.2vh 1.2vw .8vh;
+    border-bottom:1px solid var(--card-border);
+  }
+  .bt thead th.num{text-align:right}
+  .bt thead th.hl{
+    color:var(--accent-1);
+    border-bottom:2px solid var(--accent-1);
+  }
+  .bt tbody td{
+    padding:1.2vh 1.2vw;
+    border-bottom:1px solid rgba(127,127,127,.12);
+    color:var(--text-2);font-weight:400;line-height:1.45;
+  }
+  .bt tbody tr:last-child td{border-bottom:0}
+  .bt tbody td.num{
+    font-family:var(--display-en);
+    text-align:right;
+    font-feature-settings:"tnum";
+    color:var(--text);font-weight:600;
+  }
+  .bt tbody td.hl{
+    background:color-mix(in srgb,var(--accent-1) 10%,transparent);
+    color:var(--accent-1);
+  }
+  .bt tbody td.pos{color:var(--accent-4);font-weight:600}
+  .bt tbody td.neg{color:var(--accent-3);font-weight:600}
+  .bt tbody td.muted{color:var(--text-3)}
+  .bt tbody td.center{text-align:center}
+  /* 表格里的第一列(标签列)用 sans 字体,稍粗 */
+  .bt tbody td:first-child{
+    font-family:var(--sans-zh);
+    font-weight:500;color:var(--text);
+  }
+
+  /* ============ TOC Item(章节目录条目) ·  L10 TOC layout 专用 ============
+     用法:在 .b-card 里包一行 .toc-item;
+     横向布局:大编号 + 中部章节名/描述 + 右侧页码 sticker
+     适合 Layout 10 的"列表式 TOC"(每章一条 .b-12x1)
+  */
+  .toc-item{
+    display:flex;align-items:center;gap:1.6vw;
+    width:100%;height:100%;
+  }
+  .toc-item .toc-num{
+    font-family:var(--display-en);
+    font-weight:800;font-size:3.2vw;line-height:1;
+    letter-spacing:-.02em;color:var(--text);
+    font-feature-settings:"tnum";min-width:2.6em;
+  }
+  .toc-item .toc-body{flex:1;min-width:0}
+  .toc-item .toc-name{
+    font-family:var(--sans-zh);font-weight:700;
+    font-size:1.5vw;line-height:1.2;color:var(--text);
+  }
+  .toc-item .toc-desc{
+    font-family:var(--sans-zh);font-weight:400;
+    font-size:max(12px,.9vw);line-height:1.4;
+    color:var(--text-2);margin-top:.3vh;
+  }
+  .toc-item .toc-pages{
+    font-family:var(--mono);font-size:max(10px,.75vw);
+    letter-spacing:.18em;text-transform:uppercase;
+    color:var(--text-3);
+  }
+  /* 当前章节高亮 · 加 .toc-item.active */
+  .toc-item.active .toc-num{
+    background:var(--gtext-aurora);
+    background-clip:text;-webkit-background-clip:text;
+    color:transparent;-webkit-text-fill-color:transparent;
+  }
+  .toc-item.active .toc-pages{color:var(--accent-1)}
+  /* 已讲过的章节弱化 */
+  .toc-item.done{opacity:.45}
+
   .c-head{display:flex;flex-direction:column;gap:.6vh;margin-bottom:1.4vh}
   .c-head .c-kick{
     font-family:var(--mono);font-size:max(10px,.72vw);
@@ -573,7 +674,153 @@
 </section>
 
 <!-- ============================================================
-     SLIDE 03 · Stat Showcase 2x2 · Layout 8
+     SLIDE 03 · TOC 章节目录 · Layout 10(列表式 5 章)
+     ============================================================ -->
+<section class="slide" data-theme="dark">
+  <div class="chrome">
+    <div>Contents · 章节目录</div>
+    <div>03 / 04</div>
+  </div>
+  <div class="bento">
+    <div class="b-card glass b-12x2" data-anim>
+      <div class="kicker">CONTENTS · 5 ACTS</div>
+      <h2 class="h-xl">本场<span class="gtext gtext-aurora">内容</span></h2>
+    </div>
+    <div class="b-card b-12x1" data-anim>
+      <div class="toc-item done">
+        <div class="toc-num">01</div>
+        <div class="toc-body">
+          <div class="toc-name">公司画像</div>
+          <div class="toc-desc">基本信息 · 历程 · 品牌矩阵 · 产能布局</div>
+        </div>
+        <div class="toc-pages">P 02-05</div>
+      </div>
+    </div>
+    <div class="b-card grad b-12x1" data-anim>
+      <div class="toc-item active">
+        <div class="toc-num">02</div>
+        <div class="toc-body">
+          <div class="toc-name">行业与市场</div>
+          <div class="toc-desc">全球市场规模 · 渗透率反差 · 增长驱动力</div>
+        </div>
+        <div class="toc-pages">P 06-09 · 当前</div>
+      </div>
+    </div>
+    <div class="b-card b-12x1" data-anim>
+      <div class="toc-item">
+        <div class="toc-num">03</div>
+        <div class="toc-body">
+          <div class="toc-name">财务表现</div>
+          <div class="toc-desc">三年财务对比 · 客户结构 · 技术与数据资产</div>
+        </div>
+        <div class="toc-pages">P 10-13</div>
+      </div>
+    </div>
+    <div class="b-card b-12x1" data-anim>
+      <div class="toc-item">
+        <div class="toc-num">04</div>
+        <div class="toc-body">
+          <div class="toc-name">竞争格局</div>
+          <div class="toc-desc">全球 vs 国内对手 · 优劣势 · 客户集中度风险</div>
+        </div>
+        <div class="toc-pages">P 14-16</div>
+      </div>
+    </div>
+    <div class="b-card b-12x1" data-anim>
+      <div class="toc-item">
+        <div class="toc-num">05</div>
+        <div class="toc-body">
+          <div class="toc-name">战略与展望</div>
+          <div class="toc-desc">2025 关键动作 · SWOT · 风险 · 收尾金句</div>
+        </div>
+        <div class="toc-pages">P 17-20</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div>Layout 10 · TOC List View</div>
+    <div>— 03 / 04 —</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 04 · Table-Centric · Layout 9(财务三年对比表)
+     ============================================================ -->
+<section class="slide" data-theme="dark">
+  <div class="chrome">
+    <div>财务 3 年对比 · Financial Comparison</div>
+    <div>04 / 04</div>
+  </div>
+  <div class="bento">
+    <div class="b-card grad b-12x2" data-anim>
+      <div class="kicker">FY 2023-2025 · 三年纵向对比</div>
+      <h2 class="h-lg">营收回升 · 利润<span class="gtext gtext-flame">承压</span></h2>
+    </div>
+    <div class="b-card b-12x5" data-anim>
+      <table class="bt">
+        <thead>
+          <tr>
+            <th>指标</th>
+            <th class="num">2023</th>
+            <th class="num">2024</th>
+            <th class="num hl">2025</th>
+            <th class="num">YoY</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>营业收入(亿元)</td>
+            <td class="num">31.03</td>
+            <td class="num">29.58</td>
+            <td class="num hl">30.30</td>
+            <td class="num pos">+2.4%</td>
+          </tr>
+          <tr>
+            <td>归母净利润(亿元)</td>
+            <td class="num">1.78</td>
+            <td class="num">1.56</td>
+            <td class="num hl">1.05</td>
+            <td class="num neg">-32.8%</td>
+          </tr>
+          <tr>
+            <td>毛利率</td>
+            <td class="num">38.2%</td>
+            <td class="num">37.4%</td>
+            <td class="num hl">33.5%</td>
+            <td class="num neg">-3.9pp</td>
+          </tr>
+          <tr>
+            <td>净利率</td>
+            <td class="num muted">5.7%</td>
+            <td class="num">5.2%</td>
+            <td class="num hl">3.4%</td>
+            <td class="num neg">-1.8pp</td>
+          </tr>
+          <tr>
+            <td>经营现金流(亿元)</td>
+            <td class="num muted">2.10</td>
+            <td class="num">2.57</td>
+            <td class="num hl">3.86</td>
+            <td class="num pos">+50.2%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="b-card glass b-12x1" data-anim>
+      <div style="display:flex;align-items:center;gap:1em;height:100%">
+        <span class="sticker mint">INSIGHT</span>
+        <span class="body">现金流改善是唯一正向信号 · 应收账款占归母净利润 513.5% 是关键议题</span>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div>Layout 9 · Table-Centric</div>
+    <div>— 04 / 04 —</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 05 · Stat Showcase 2x2 · Layout 8
      ============================================================ -->
 <section class="slide" data-theme="dark">
   <div class="chrome">

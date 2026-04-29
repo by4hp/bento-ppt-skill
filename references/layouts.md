@@ -556,6 +556,299 @@ bento 卡里的图片用两种方式:
 
 ---
 
+---
+
+## Layout 9 · Table-Centric(商业表格主导)
+
+**用途**:财务三年对比 / 竞品功能矩阵 / 价格套餐表 / SLA 对比 / 任何 ≤ 8 行 × 6 列的对比表
+**密度**:3 卡(顶 banner + 中表格 + 底 insight)
+**默认主题**:dark / light 都可,看主题色
+
+```html
+<section class="slide" data-theme="dark">
+  <div class="chrome">
+    <div>财务 3 年对比 · Financial Comparison</div>
+    <div>09 / 18</div>
+  </div>
+  <div class="bento">
+    <!-- 顶部:标题 banner b-12x2 -->
+    <div class="b-card grad b-12x2" data-anim>
+      <div class="kicker">FY 2023-2025 · 三年纵向对比</div>
+      <h2 class="h-lg">营收回升 · 利润<span class="gtext gtext-flame">承压</span></h2>
+    </div>
+    <!-- 中部:表格主卡 b-12x5 -->
+    <div class="b-card b-12x5" data-anim>
+      <table class="bt">
+        <thead>
+          <tr>
+            <th>指标</th>
+            <th class="num">2023</th>
+            <th class="num">2024</th>
+            <th class="num hl">2025</th>
+            <th class="num">YoY</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>营业收入(亿元)</td>
+            <td class="num">31.03</td>
+            <td class="num">29.58</td>
+            <td class="num hl">30.30</td>
+            <td class="num pos">+2.4%</td>
+          </tr>
+          <tr>
+            <td>归母净利润(亿元)</td>
+            <td class="num">1.78</td>
+            <td class="num">1.56</td>
+            <td class="num hl">1.05</td>
+            <td class="num neg">-32.8%</td>
+          </tr>
+          <tr>
+            <td>毛利率</td>
+            <td class="num">38.2%</td>
+            <td class="num">37.4%</td>
+            <td class="num hl">33.5%</td>
+            <td class="num neg">-3.9pp</td>
+          </tr>
+          <tr>
+            <td>净利率</td>
+            <td class="num muted">5.7%</td>
+            <td class="num">5.2%</td>
+            <td class="num hl">3.4%</td>
+            <td class="num neg">-1.8pp</td>
+          </tr>
+          <tr>
+            <td>经营现金流(亿元)</td>
+            <td class="num muted">2.10</td>
+            <td class="num">2.57</td>
+            <td class="num hl">3.86</td>
+            <td class="num pos">+50.2%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- 底部:insight 横条 b-12x1 -->
+    <div class="b-card glass b-12x1" data-anim>
+      <div style="display:flex;align-items:center;gap:1em;height:100%">
+        <span class="sticker mint">INSIGHT</span>
+        <span class="body">现金流改善是唯一正向信号 · 应收账款占归母净利润 513.5% 是关键议题</span>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div>Layout 9 · Table-Centric</div>
+    <div>FINANCIAL COMPARISON</div>
+  </div>
+</section>
+```
+
+### `.bt` 表格类速查
+
+| 类 | 用途 |
+|---|---|
+| `<table class="bt">` | 启用 bento 表格样式 |
+| `<th class="num">` | 数字列表头(右对齐) |
+| `<th class="hl">` | 高亮列表头(accent-1 色 + 加粗下划线) |
+| `<td class="num">` | 数字单元格(等宽 + 右对齐 + Manrope) |
+| `<td class="hl">` | 高亮列单元格(背景填 accent-1 半透) |
+| `<td class="pos">` | 正向数据(绿色 + 加粗) |
+| `<td class="neg">` | 负向数据(粉红色 + 加粗) |
+| `<td class="muted">` | 弱化数据(text-3) |
+| `<td class="center">` | 居中对齐 |
+
+第一列(标签列)自动用 sans-zh 字体 + 稍粗 + 主文色。
+
+### 硬约束
+
+- ≤ 8 行 × 6 列(再大就拆页或换 dee-ppt-skill)
+- **每页 ≤ 1 张 `.bt` 表格**(2 张表 = 商业 PPT 表格页观感,丢掉 bento 美学)
+- 表格永远在 `.b-card` 里,不要直接放在 `.bento` grid 上
+
+### 变体 · 大表格(竞品功能矩阵)
+
+如果是 6 列 × 6-8 行的竞品功能对比,把中部主卡改成 `b-12x6`,顶部 banner 缩成 `b-12x1`,底部 insight 缩到 `b-12x1`:
+
+```
+顶部 b-12x1(只有标题一行)
+中部 b-12x6(大表格)
+底部 b-12x1(insight)
+```
+
+---
+
+## Layout 10 · TOC(章节目录)
+
+**用途**:开场后的"内容大纲"页,告诉听众接下来要讲什么
+**密度**:1 banner + N 章节卡(N = 3 / 4 / 5 / 6)
+**默认主题**:dark(对仪式感更友好)
+
+### 10A · 列表式 TOC(推荐 · 适合 4-6 章)
+
+每章一张全宽窄卡 `.b-12x1`,纵向叠成"目录列表"。这是 Apple keynote 最常见的 TOC 形态。
+
+```html
+<section class="slide" data-theme="dark">
+  <div class="chrome">
+    <div>Contents · 章节目录</div>
+    <div>02 / 18</div>
+  </div>
+  <div class="bento">
+    <!-- 顶部 banner -->
+    <div class="b-card glass b-12x2" data-anim>
+      <div class="kicker">CONTENTS · 5 ACTS · 18 PAGES</div>
+      <h2 class="h-xl">本场<span class="gtext gtext-aurora">内容</span></h2>
+    </div>
+
+    <!-- 已讲过(.done 弱化) -->
+    <div class="b-card b-12x1" data-anim>
+      <div class="toc-item done">
+        <div class="toc-num">01</div>
+        <div class="toc-body">
+          <div class="toc-name">公司画像</div>
+          <div class="toc-desc">基本信息 · 历程 · 品牌矩阵 · 产能布局</div>
+        </div>
+        <div class="toc-pages">P 02-05</div>
+      </div>
+    </div>
+
+    <!-- 当前章节(.active 高亮 + grad 卡变体) -->
+    <div class="b-card grad b-12x1" data-anim>
+      <div class="toc-item active">
+        <div class="toc-num">02</div>
+        <div class="toc-body">
+          <div class="toc-name">行业与市场</div>
+          <div class="toc-desc">全球市场规模 · 渗透率反差 · 增长驱动力</div>
+        </div>
+        <div class="toc-pages">P 06-09 · 当前</div>
+      </div>
+    </div>
+
+    <!-- 未讲(默认样式) -->
+    <div class="b-card b-12x1" data-anim>
+      <div class="toc-item">
+        <div class="toc-num">03</div>
+        <div class="toc-body">
+          <div class="toc-name">财务表现</div>
+          <div class="toc-desc">三年财务对比 · 客户结构 · 技术与数据资产</div>
+        </div>
+        <div class="toc-pages">P 10-13</div>
+      </div>
+    </div>
+    <div class="b-card b-12x1" data-anim>
+      <div class="toc-item">
+        <div class="toc-num">04</div>
+        <div class="toc-body">
+          <div class="toc-name">竞争格局</div>
+          <div class="toc-desc">全球 vs 国内对手 · 优劣势 · 客户集中度风险</div>
+        </div>
+        <div class="toc-pages">P 14-16</div>
+      </div>
+    </div>
+    <div class="b-card b-12x1" data-anim>
+      <div class="toc-item">
+        <div class="toc-num">05</div>
+        <div class="toc-body">
+          <div class="toc-name">战略与展望</div>
+          <div class="toc-desc">2025 关键动作 · SWOT · 风险 · 收尾金句</div>
+        </div>
+        <div class="toc-pages">P 17-20</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div>Layout 10A · TOC List View</div>
+    <div>5 ACTS · 18 PAGES</div>
+  </div>
+</section>
+```
+
+**TOC 状态设计**:
+- 默认:平淡(白文 + text-2 副文)
+- `.toc-item.active`:当前章节,数字用 aurora 渐变,页码 sticker 染 accent-1 色,卡片用 `.grad` 变体(整张卡微亮)
+- `.toc-item.done`:已讲过,opacity 0.45 弱化
+
+**网格规划**(5 章场景):
+```
+b-12x2 (banner) = 24
+b-12x1 × 5      = 60
+合计            = 84 ≤ 96 ✅(剩 12 单元留白)
+```
+
+### 10B · 网格式 TOC(适合 3-4 章 · 视觉更强)
+
+每章一张大卡 + 大编号 + 章节名 + 描述 + 页码,用 grid 排:
+
+```html
+<section class="slide" data-theme="dark">
+  <div class="chrome">
+    <div>Contents · 章节目录</div>
+    <div>02 / 16</div>
+  </div>
+  <div class="bento">
+    <div class="b-card glass b-12x2" data-anim>
+      <div class="kicker">CONTENTS · 4 ACTS</div>
+      <h2 class="h-xl">本场<span class="gtext gtext-aurora">内容</span></h2>
+    </div>
+    <div class="b-card grad b-6x3" data-anim>
+      <div class="hero-num gtext gtext-sky" style="font-size:5vw">01</div>
+      <div class="c-head" style="margin-top:1vh">
+        <div class="c-title">公司画像</div>
+      </div>
+      <p class="body" style="margin-top:.6vh">基本信息 · 发展历程 · 品牌矩阵 · 产能布局</p>
+      <div class="c-foot">P 02-05</div>
+    </div>
+    <div class="b-card b-6x3" data-anim>
+      <div class="hero-num" style="font-size:5vw;color:var(--text-3)">02</div>
+      <div class="c-head" style="margin-top:1vh">
+        <div class="c-title">行业与市场</div>
+      </div>
+      <p class="body" style="margin-top:.6vh">全球规模 · 渗透率反差 · 4 大驱动力</p>
+      <div class="c-foot">P 06-09</div>
+    </div>
+    <div class="b-card b-6x3" data-anim>
+      <div class="hero-num" style="font-size:5vw;color:var(--text-3)">03</div>
+      <div class="c-head" style="margin-top:1vh">
+        <div class="c-title">财务与竞争</div>
+      </div>
+      <p class="body" style="margin-top:.6vh">3 年对比 · 客户集中度 · 全球 vs 国内</p>
+      <div class="c-foot">P 10-13</div>
+    </div>
+    <div class="b-card b-6x3" data-anim>
+      <div class="hero-num" style="font-size:5vw;color:var(--text-3)">04</div>
+      <div class="c-head" style="margin-top:1vh">
+        <div class="c-title">战略与展望</div>
+      </div>
+      <p class="body" style="margin-top:.6vh">2025 动作 · SWOT · 风险 · 收尾</p>
+      <div class="c-foot">P 14-16</div>
+    </div>
+  </div>
+  <div class="foot">
+    <div>Layout 10B · TOC Grid View</div>
+    <div>4 ACTS · 16 PAGES</div>
+  </div>
+</section>
+```
+
+**网格规划**(4 章网格):
+```
+b-12x2 (banner) = 24
+b-6x3  × 4       = 72
+合计            = 96 ✅
+```
+
+3 章用 `b-4x6 × 3` + 顶部 `b-12x2`,6 章用 `b-4x3 × 6` + 顶部 `b-12x2`。
+
+### TOC 设计原则
+
+- ✅ TOC 页放在**开场后第 2 页**(第 1 页是封面 hero,第 2 页是 TOC)
+- ✅ 章节数 ≥ 3 才值得做 TOC,< 3 章直接跳过(听众一眼就懂)
+- ✅ 章节描述 ≤ 1 行,**不要塞段落** — TOC 是地图不是大纲
+- ✅ 章节数 ≤ 6 — 超过 6 拆成两层(主章节 + 子章节)或干脆不做 TOC
+- ❌ TOC 页不要塞图片 / KPI / 数据卡 — 干净就是 TOC 的本职
+- ❌ 不要每个新章节前都重复 TOC(有些 deck 会"今天讲到第 03 章" — 听众不需要,看 ESC 索引即可)
+
+---
+
 ## Layout 决策树
 
 ```
@@ -567,7 +860,9 @@ bento 卡里的图片用两种方式:
 ├─ 1 主产品 + 规格 + 价格    → Layout 5 (Hero + 2 Side)
 ├─ 章节标题 + 3 子点        → Layout 6 (Top Hero + Grid)  ★ 本 skill 主推
 ├─ 5-7 个维度的 dashboard   → Layout 7 (Mixed Free)      ★ 本 skill 主推
-└─ 4 个 KPI / 4 个里程碑    → Layout 8 (Stat Showcase 2×2)
+├─ 4 个 KPI / 4 个里程碑    → Layout 8 (Stat Showcase 2×2)
+├─ 多列对比表 / 财务三年表   → Layout 9 (Table-Centric)   ★ 商业用途
+└─ 章节目录 / 内容大纲       → Layout 10 (TOC,A 列表式 / B 网格式)
 ```
 
 ---
